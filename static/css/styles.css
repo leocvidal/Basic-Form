@@ -1,0 +1,17 @@
+body {
+    background-color: #f0f8ff; /* Light blue background color */
+    color: #333; /* Dark text color */
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    color: #0056b3; /* Darker blue color for headers */
+}
+
+.btn-primary {
+    background-color: #0056b3; /* Darker blue color for buttons */
+    border-color: #0056b3;
+}

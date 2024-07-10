@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>API Call Result</h1>
+    <pre>{{ result }}</pre>
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Form</a>
+{% endblock %}
