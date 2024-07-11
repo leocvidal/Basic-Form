@@ -1,13 +1,21 @@
-from alpine:latest
-RUN apk add --no-cache py3-pip \
-    && pip3 install --upgrade pip
+FROM alpine:latest
 
-WORKDIR /app
+# Install necessary packages
+RUN apk add --no-cache python3 py3-pip py3-virtualenv
+
+# Create and activate virtual environment
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Upgrade pip and install dependencies
+RUN pip install --upgrade pip
+
+# Copy the application code to the container
 COPY . /app
+WORKDIR /app
 
-RUN pip3 --no-cache-dir install -r requirements.txt
+# Install application dependencies
+RUN pip install -r requirements.txt
 
-EXPOSE 5000
-
-ENTRYPOINT ["python3"]
-CMD ["app.py"]
+# Set the entry point for the application
+CMD ["python", "app.py"]
